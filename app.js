@@ -1,5 +1,6 @@
 /* =========================================================
-   SHIVAKSHA RESTRO - NEW MENU
+   SHIVAKSHA RESTRO — NEW MENU
+   Old menu completely replaced.
    ========================================================= */
 
 const dish = (name, price, category, type = "veg", image = "") => ({
@@ -11,9 +12,9 @@ const dish = (name, price, category, type = "veg", image = "") => ({
 });
 
 
-/* =========================
-   NEW MENU ONLY
-   ========================= */
+/* =========================================================
+   NEW MENU
+   ========================================================= */
 
 const menuItems = [
 
