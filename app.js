@@ -1,6 +1,5 @@
 /* =========================================================
-   SHIVAKSHA RESTRO — NEW MENU
-   Old menu completely replaced.
+   SHIVAKSHA RESTRO - NEW MENU
    ========================================================= */
 
 const dish = (name, price, category, type = "veg", image = "") => ({
@@ -12,9 +11,9 @@ const dish = (name, price, category, type = "veg", image = "") => ({
 });
 
 
-/* =========================================================
-   NEW MENU
-   ========================================================= */
+/* =========================
+   NEW MENU ONLY
+   ========================= */
 
 const menuItems = [
 
@@ -25,7 +24,6 @@ const menuItems = [
   dish("Egg Pakoda", "100", "Starters", "nonveg"),
   dish("Omelet", "60", "Starters", "nonveg"),
 
-
   // 🍲 SOUP
   dish("Veg Soup", "70", "Soup"),
   dish("Veg Manchow Soup", "90", "Soup"),
@@ -33,7 +31,6 @@ const menuItems = [
   dish("Mushroom Soup", "120", "Soup"),
   dish("Chicken Manchow Soup", "120", "Soup", "nonveg"),
   dish("Chicken Hot & Sour Soup", "120", "Soup", "nonveg"),
-
 
   // 🥢 CHINESE — VEG
   dish("Veg Chilli", "130", "Chinese — Veg"),
@@ -50,7 +47,6 @@ const menuItems = [
   dish("Veg Lolly Pop", "150", "Chinese — Veg"),
   dish("Veg Chowmein", "120", "Chinese — Veg"),
 
-
   // 🍜 CHINESE — NOODLES
   dish("Mix Chowmein", "200", "Chinese — Noodles"),
   dish("Paneer Chowmein", "150", "Chinese — Noodles"),
@@ -63,7 +59,6 @@ const menuItems = [
   dish("Veg Chowmein", "150", "Chinese — Noodles"),
   dish("Veg Hakka Noodle", "160", "Chinese — Noodles"),
 
-
   // 🍗 CHINESE — NON-VEG
   dish("Chicken Chilli (Bone/Boneless)", "190/220", "Chinese — Non-Veg", "nonveg"),
   dish("Chicken Manchurian", "220", "Chinese — Non-Veg", "nonveg"),
@@ -71,7 +66,6 @@ const menuItems = [
   dish("Chicken Garlic Chilli", "220", "Chinese — Non-Veg", "nonveg"),
   dish("Chicken 65 (Bone/Boneless)", "190/220", "Chinese — Non-Veg", "nonveg"),
   dish("Chicken Lollipop", "190", "Chinese — Non-Veg", "nonveg"),
-
 
   // 🍚 RICE
   dish("Plain Rice", "90/50", "Rice"),
@@ -94,7 +88,6 @@ const menuItems = [
   dish("Chicken Biryani", "180", "Rice", "nonveg"),
   dish("Chicken Hyderabadi Biryani", "210", "Rice", "nonveg"),
   dish("Chicken Dum Biryani", "210", "Rice", "nonveg"),
-
 
   // 🥘 VEG MAIN COURSE
   dish("Paneer Kalimirch", "220", "Veg Main Course"),
@@ -125,7 +118,6 @@ const menuItems = [
   dish("Kaju Kadhai", "260", "Veg Main Course"),
   dish("Kaju Korma", "280", "Veg Main Course"),
 
-
   // 🍗 NON-VEG MAIN COURSE
   dish("Chicken Curry (2 Pc/4 Pc)", "120/180", "Non-Veg Main Course", "nonveg"),
   dish("Chicken Dehati (4 Pc/8 Pc)", "250/420", "Non-Veg Main Course", "nonveg"),
@@ -142,7 +134,6 @@ const menuItems = [
   dish("Egg Bhurji", "70", "Non-Veg Main Course", "nonveg"),
   dish("Omelet Curry", "100", "Non-Veg Main Course", "nonveg"),
   dish("Chicken Butter Masala", "250", "Non-Veg Main Course", "nonveg"),
-
 
   // 🫓 BREADS
   dish("Tawa Roti", "15", "Breads"),
@@ -163,12 +154,10 @@ const menuItems = [
   dish("Aloo Paratha", "50", "Breads"),
   dish("Sattu Paratha", "60", "Breads"),
 
-
   // 🍛 DAL
   dish("Plain Dal", "100", "Dal"),
   dish("Dal Fry Butter", "120/80", "Dal"),
   dish("Dal Tadka", "140/90", "Dal"),
-
 
   // 🥗 SALAD / RAITA
   dish("Green Salad Half", "50", "Salad / Raita"),
@@ -178,7 +167,6 @@ const menuItems = [
   dish("Bundi Raita", "90", "Salad / Raita"),
   dish("Dahi", "60", "Salad / Raita"),
   dish("Peanut Masala", "140", "Salad / Raita"),
-
 
   // 🥤 DRINKS
   dish("Masala Cold Drink", "40", "Drinks"),
@@ -245,16 +233,10 @@ const itemOptions = {
 };
 
 
-/* =========================================================
-   APPLY OPTIONS
-   ========================================================= */
-
 menuItems.forEach(item => {
   Object.assign(
     item,
-    {
-      available: true
-    },
+    { available: true },
     itemOptions[`${item.name}|${item.type}`] || {}
   );
 });
@@ -277,7 +259,6 @@ const state = {
    ========================================================= */
 
 const params = new URLSearchParams(window.location.search);
-
 const rawTable = params.get("table");
 
 const safeTable =
@@ -285,24 +266,24 @@ const safeTable =
     ? rawTable
     : null;
 
-const tableNumberElement = document.querySelector("#tableNumber");
-const welcomeTableElement = document.querySelector("#welcomeTable");
+const tableNumber = document.querySelector("#tableNumber");
+const welcomeTable = document.querySelector("#welcomeTable");
 
-if (tableNumberElement) {
-  tableNumberElement.textContent = safeTable
+if (tableNumber) {
+  tableNumber.textContent = safeTable
     ? `Table ${safeTable}`
     : "Table —";
 }
 
-if (welcomeTableElement) {
-  welcomeTableElement.textContent = safeTable
+if (welcomeTable) {
+  welcomeTable.textContent = safeTable
     ? `Table ${safeTable} · Dine-in menu`
     : "Welcome · Digital menu";
 }
 
 
 /* =========================================================
-   CATEGORY ICONS
+   ICONS
    ========================================================= */
 
 const icons = {
@@ -330,11 +311,6 @@ const categories = [
   ...new Set(menuItems.map(item => item.category))
 ];
 
-
-/* =========================================================
-   DOM ELEMENTS
-   ========================================================= */
-
 const categoryList = document.querySelector("#categoryList");
 const container = document.querySelector("#menuContainer");
 const emptyState = document.querySelector("#emptyState");
@@ -345,11 +321,10 @@ const clear = document.querySelector("#clearSearch");
 
 
 /* =========================================================
-   RENDER CATEGORIES
+   CATEGORY RENDER
    ========================================================= */
 
 function renderCategories() {
-
   if (!categoryList) return;
 
   categoryList.innerHTML = categories
@@ -364,69 +339,54 @@ function renderCategories() {
     `)
     .join("");
 
-  categoryList
-    .querySelectorAll("button")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        state.category = button.dataset.category;
-
-        render();
-
-      });
-
+  categoryList.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      state.category = button.dataset.category;
+      render();
     });
+  });
 }
 
 
 /* =========================================================
-   FILTER + SEARCH + SORT
+   FILTER / SEARCH / SORT
    ========================================================= */
 
 function filteredItems() {
 
   const items = menuItems.filter(item => {
 
-    const matchesType =
+    const typeMatch =
       state.filter === "all" ||
       item.type === state.filter;
 
-    const matchesCategory =
+    const categoryMatch =
       state.category === "All" ||
       item.category === state.category;
 
-    const matchesSearch =
+    const searchMatch =
       item.name
         .toLowerCase()
         .includes(state.search.toLowerCase());
 
-    return (
-      matchesType &&
-      matchesCategory &&
-      matchesSearch
-    );
-
+    return typeMatch && categoryMatch && searchMatch;
   });
-
 
   if (state.sort === "default") {
     return items;
   }
 
-
   return [...items].sort((a, b) => {
 
-    const firstPrice = item =>
+    const getPrice = item =>
       Number.parseInt(
         String(item.price).split("/")[0],
         10
       );
 
     return state.sort === "low"
-      ? firstPrice(a) - firstPrice(b)
-      : firstPrice(b) - firstPrice(a);
-
+      ? getPrice(a) - getPrice(b)
+      : getPrice(b) - getPrice(a);
   });
 }
 
@@ -438,12 +398,10 @@ function filteredItems() {
 function card(item, index) {
 
   const image = item.image
-    ? `<img src="assets/${item.image}" alt="${item.name}" />`
+    ? `<img src="assets/${item.image}" alt="${item.name}">`
     : icons[item.category] || "🍽️";
 
-
   const badges = [
-
     item.chefSpecial
       ? `<span class="badge special">Chef's Special</span>`
       : "",
@@ -455,35 +413,34 @@ function card(item, index) {
     item.spicy
       ? `<span class="badge spicy">Spicy</span>`
       : ""
-
   ].join("");
 
+  let price;
 
-  const price =
+  if (item.price.includes("/") && item.priceLabel) {
 
-    item.price.includes("/") && item.priceLabel
+    price = `
+      <span class="price-parts">
+        ${item.price
+          .split("/")
+          .map(value => `₹${value}`)
+          .join(" / ")}
+      </span>
+      <span class="price-note">
+        ${item.priceLabel}
+      </span>
+    `;
 
-      ? `
-        <span class="price-parts">
-          ${item.price
-            .split("/")
-            .map(value => `₹${value}`)
-            .join(" / ")}
-        </span>
+  } else {
 
-        <span class="price-note">
-          ${item.priceLabel}
-        </span>
-      `
+    price = `₹${item.price}`;
 
-      : `₹${item.price}`;
-
+  }
 
   const status =
     item.available
       ? "Available"
       : "Sold Out";
-
 
   return `
     <article
@@ -494,7 +451,6 @@ function card(item, index) {
       <div class="dish-body">
 
         <h3 class="dish-name">
-
           <span
             class="type-marker ${
               item.type === "nonveg"
@@ -504,14 +460,11 @@ function card(item, index) {
           ></span>
 
           ${item.name}
-
         </h3>
-
 
         <p class="dish-category">
           ${item.category}
         </p>
-
 
         ${
           badges
@@ -519,18 +472,15 @@ function card(item, index) {
             : ""
         }
 
-
         <p class="price">
           ${price}
         </p>
-
 
         <p class="availability">
           ${status}
         </p>
 
       </div>
-
 
       <div class="dish-image">
         ${image}
@@ -551,81 +501,63 @@ function render() {
 
   renderCategories();
 
-
   if (container) {
-
     container.innerHTML =
       items.map(card).join("");
 
     container.hidden =
       items.length === 0;
-
   }
-
 
   if (emptyState) {
-
     emptyState.hidden =
       items.length !== 0;
-
   }
 
-
   if (title) {
-
     title.textContent =
       state.category === "All"
         ? "All dishes"
         : state.category;
-
   }
 
-
   if (count) {
-
     count.textContent =
       `${items.length} ${
         items.length === 1
           ? "dish"
           : "dishes"
       }`;
-
   }
-
 }
 
 
 /* =========================================================
-   VEG / NON-VEG FILTER
+   VEG / NON-VEG
    ========================================================= */
 
-document
-  .querySelectorAll(".filter")
-  .forEach(button => {
+document.querySelectorAll(".filter").forEach(button => {
 
-    button.addEventListener("click", () => {
+  button.addEventListener("click", () => {
 
-      state.filter =
-        button.dataset.filter;
+    state.filter =
+      button.dataset.filter;
 
+    document
+      .querySelectorAll(".filter")
+      .forEach(item => {
 
-      document
-        .querySelectorAll(".filter")
-        .forEach(item => {
+        item.classList.toggle(
+          "active",
+          item === button
+        );
 
-          item.classList.toggle(
-            "active",
-            item === button
-          );
+      });
 
-        });
-
-
-      render();
-
-    });
-
+    render();
   });
+
+});
 
 
 /* =========================================================
@@ -639,23 +571,17 @@ if (search) {
     state.search =
       search.value.trim();
 
-
     const searchBox =
       document.querySelector(".search-box");
 
-
     if (searchBox) {
-
       searchBox.classList.toggle(
         "has-text",
         Boolean(state.search)
       );
-
     }
 
-
     render();
-
   });
 
 }
@@ -675,22 +601,14 @@ if (clear) {
       search.focus();
     }
 
-
     const searchBox =
       document.querySelector(".search-box");
 
-
     if (searchBox) {
-
-      searchBox.classList.remove(
-        "has-text"
-      );
-
+      searchBox.classList.remove("has-text");
     }
 
-
     render();
-
   });
 
 }
@@ -703,20 +621,16 @@ if (clear) {
 const sortMenu =
   document.querySelector("#sortMenu");
 
-
 if (sortMenu) {
 
-  sortMenu.addEventListener(
-    "change",
-    event => {
+  sortMenu.addEventListener("change", event => {
 
-      state.sort =
-        event.target.value;
+    state.sort =
+      event.target.value;
 
-      render();
+    render();
 
-    }
-  );
+  });
 
 }
 
@@ -728,14 +642,9 @@ if (sortMenu) {
 const bannerTrack =
   document.querySelector("#bannerTrack");
 
-
-const bannerDots =
-  [
-    ...document.querySelectorAll(
-      ".banner-dots button"
-    )
-  ];
-
+const bannerDots = [
+  ...document.querySelectorAll(".banner-dots button")
+];
 
 let bannerIndex = 0;
 
@@ -749,27 +658,21 @@ function showBanner(index) {
     return;
   }
 
-
   bannerIndex =
     (index + bannerDots.length)
     % bannerDots.length;
 
-
   bannerTrack.style.transform =
     `translateX(-${bannerIndex * 100}%)`;
 
+  bannerDots.forEach((dot, dotIndex) => {
 
-  bannerDots.forEach(
-    (dot, dotIndex) => {
+    dot.classList.toggle(
+      "active",
+      dotIndex === bannerIndex
+    );
 
-      dot.classList.toggle(
-        "active",
-        dotIndex === bannerIndex
-      );
-
-    }
-  );
-
+  });
 }
 
 
@@ -777,20 +680,18 @@ function showBanner(index) {
    BANNER DOTS
    ========================================================= */
 
-bannerDots.forEach(
-  (dot, index) => {
+bannerDots.forEach((dot, index) => {
 
-    dot.addEventListener(
-      "click",
-      () => showBanner(index)
-    );
+  dot.addEventListener(
+    "click",
+    () => showBanner(index)
+  );
 
-  }
-);
+});
 
 
 /* =========================================================
-   AUTO SLIDE EVERY 4.5 SEC
+   AUTO SLIDE
    ========================================================= */
 
 if (bannerDots.length > 0) {
@@ -804,7 +705,7 @@ if (bannerDots.length > 0) {
 
 
 /* =========================================================
-   INITIAL RENDER
+   START
    ========================================================= */
 
 render();
