@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171717" />
+    <title>Shivaksha Restro | Digital Menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="polish.css" />
+    <link rel="stylesheet" href="addons.css" />
+  </head>
+  <body>
+    <div class="loader" aria-hidden="true"><span class="loader-mark">S</span><span>Shivaksha Restro</span></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-row">
+          <div class="brand"><span class="brand-mark"><img src="assets/shivaksha-mark.svg" alt="Shivaksha Restro" /></span><div><h1>Shivaksha Restro</h1><p>Digital menu</p></div></div>
+          <span class="table-badge" id="tableNumber">Table —</span>
+        </div>
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search for dishes" autocomplete="off" /><button id="clearSearch" type="button" aria-label="Clear search">×</button></label>
+        <div class="filter-row" role="group" aria-label="Food type">
+          <span class="filter-label">Show</span>
+          <div class="filter-control">
+            <button class="filter active" data-filter="all" type="button">All</button>
+            <button class="filter" data-filter="veg" type="button"><i class="food-dot veg"></i>Veg</button>
+            <button class="filter" data-filter="nonveg" type="button"><i class="food-dot nonveg"></i>Non-Veg</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="category-nav" aria-label="Menu categories"><div id="categoryList" class="category-list"></div></nav>
+
+    <main>
+      <section class="banner-slider" aria-label="Restaurant highlights">
+        <div class="banner-track" id="bannerTrack">
+          <article class="banner-slide banner-food"><div class="hero-copy"><p id="welcomeTable">Welcome</p><h2>Made with flavour.<br />Served with warmth.</h2><span>Explore our handpicked menu favourites.</span></div><div class="hero-plate" aria-hidden="true"><span>✦</span><i>🍽</i><b>✦</b></div></article>
+          <article class="banner-slide banner-special"><div class="hero-copy"><p>CHEF'S RECOMMENDATION</p><h2>Discover our<br />signature plates.</h2><span>Look for the Chef's Special badge on the menu.</span></div><div class="banner-symbol" aria-hidden="true">✦</div></article>
+          <article class="banner-slide banner-dine"><div class="hero-copy"><p>GOOD FOOD · GOOD MOOD</p><h2>Your table is<br />ready for flavour.</h2><span>Fresh dishes, served warm for every visit.</span></div><div class="banner-symbol" aria-hidden="true">✺</div></article>
+        </div>
+        <div class="banner-dots" role="tablist" aria-label="Banner slides"><button class="active" type="button" aria-label="Show banner 1"></button><button type="button" aria-label="Show banner 2"></button><button type="button" aria-label="Show banner 3"></button></div>
+      </section>
+      <section class="notice-strip"><span class="notice-icon">✓</span><span>Freshly prepared dishes · Please inform our team about allergies.</span></section>
+      <div class="menu-heading"><div><p>OUR MENU</p><h2 id="sectionTitle">All dishes</h2></div><div class="sort-area"><span id="dishCount"></span><label class="sort-select"><span>⇅</span><select id="sortMenu" aria-label="Sort menu"><option value="default">Sort</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select></label></div></div>
+      <section id="menuContainer" class="menu-grid" aria-live="polite"></section>
+      <section id="emptyState" class="empty-state" hidden><span>🍽️</span><h2>No dishes found</h2><p>Try a different search or filter.</p></section>
+    </main>
+
+    <footer>Prices are inclusive as listed on the restaurant menu. <a href="qr.html">Table QR codes</a></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
