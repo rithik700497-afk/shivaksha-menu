@@ -508,13 +508,13 @@ function priceNote(name, note) {
    ========================================================= */
 
 
-/* PHOTOS
+/* PHOTOS*/
 
 photo("Paneer Pakoda", "paneer-pakoda.jpg");
 photo("Chicken Biryani", "chicken-biryani.jpg");
 photo("Paneer Chilli", "paneer-chilli.jpg");
 
-*/
+
 
 
 /* BESTSELLERS */
